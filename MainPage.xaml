@@ -1,5 +1,5 @@
 
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage
     x:Class="Hamkafiyeh.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -9,13 +9,10 @@
 
     <Grid RowDefinitions="*,Auto">
 
-        <!-- محتوای صفحه اصلی -->
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Padding="16" Spacing="18">
 
-                <!-- سربرگ همکفیه -->
                 <Grid ColumnDefinitions="*,Auto" Padding="5,10">
-
                     <VerticalStackLayout Spacing="4">
                         <Label
                             Text="همکفیه"
@@ -36,14 +33,12 @@
                         VerticalOptions="Center"/>
                 </Grid>
 
-                <!-- جستجو -->
                 <Border
                     BackgroundColor="White"
                     StrokeThickness="0"
                     Padding="10">
 
                     <Grid ColumnDefinitions="*,Auto">
-
                         <Entry
                             x:Name="SearchInput"
                             Placeholder="چه چیزی دنبالش هستی؟"
@@ -62,169 +57,67 @@
                     </Grid>
                 </Border>
 
-                <!-- دسته‌بندی‌ها -->
                 <Label
                     Text="دسته‌بندی سرگرمی‌ها"
                     FontSize="21"
                     FontAttributes="Bold"
                     TextColor="#171717"/>
 
-                <!-- تئاتر -->
-                <Border
-                    BackgroundColor="White"
-                    StrokeThickness="0"
-                    Padding="10"
-                    StrokeShape="RoundRectangle 14">
-
+                <Border BackgroundColor="White" StrokeThickness="0" Padding="10">
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TheaterClicked"/>
                     </Border.GestureRecognizers>
-
                     <VerticalStackLayout Spacing="8">
-
-                        <Image
-                            Source="theater.jpg"
-                            HeightRequest="160"
-                            Aspect="AspectFill"/>
-
-                        <Label
-                            Text="🎭 تئاتر"
-                            FontSize="19"
-                            FontAttributes="Bold"
-                            TextColor="#171717"/>
-
-                        <Label
-                            Text="تماشای اجراهای جذاب و رزرو بلیت"
-                            FontSize="13"
-                            TextColor="#666666"/>
+                        <Image Source="theater.jpg" HeightRequest="160" Aspect="AspectFill"/>
+                        <Label Text="🎭 تئاتر" FontSize="19" FontAttributes="Bold" TextColor="#171717"/>
+                        <Label Text="تماشای اجراهای جذاب و رزرو بلیت" FontSize="13" TextColor="#666666"/>
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- سینما ترس -->
-                <Border
-                    BackgroundColor="White"
-                    StrokeThickness="0"
-                    Padding="10"
-                    StrokeShape="RoundRectangle 14">
-
+                <Border BackgroundColor="White" StrokeThickness="0" Padding="10">
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Tapped="HorrorClicked"/>
                     </Border.GestureRecognizers>
-
                     <VerticalStackLayout Spacing="8">
-
-                        <Image
-                            Source="horror.jpg"
-                            HeightRequest="160"
-                            Aspect="AspectFill"/>
-
-                        <Label
-                            Text="👻 سینما ترس"
-                            FontSize="19"
-                            FontAttributes="Bold"
-                            TextColor="#171717"/>
-
-                        <Label
-                            Text="تجربه هیجان و وحشت"
-                            FontSize="13"
-                            TextColor="#666666"/>
+                        <Image Source="horror.jpg" HeightRequest="160" Aspect="AspectFill"/>
+                        <Label Text="👻 سینما ترس" FontSize="19" FontAttributes="Bold" TextColor="#171717"/>
+                        <Label Text="تجربه هیجان و وحشت" FontSize="13" TextColor="#666666"/>
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- اتاق فرار -->
-                <Border
-                    BackgroundColor="White"
-                    StrokeThickness="0"
-                    Padding="10"
-                    StrokeShape="RoundRectangle 14">
-
+                <Border BackgroundColor="White" StrokeThickness="0" Padding="10">
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Tapped="EscapeClicked"/>
                     </Border.GestureRecognizers>
-
                     <VerticalStackLayout Spacing="8">
-
-                        <Image
-                            Source="escape.jpg"
-                            HeightRequest="160"
-                            Aspect="AspectFill"/>
-
-                        <Label
-                            Text="🔐 اتاق فرار"
-                            FontSize="19"
-                            FontAttributes="Bold"
-                            TextColor="#171717"/>
-
-                        <Label
-                            Text="ماجراجویی و حل معما"
-                            FontSize="13"
-                            TextColor="#666666"/>
+                        <Image Source="escape.jpg" HeightRequest="160" Aspect="AspectFill"/>
+                        <Label Text="🔐 اتاق فرار" FontSize="19" FontAttributes="Bold" TextColor="#171717"/>
+                        <Label Text="ماجراجویی و حل معما" FontSize="13" TextColor="#666666"/>
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- همایش‌ها و رویدادها -->
-                <Border
-                    BackgroundColor="White"
-                    StrokeThickness="0"
-                    Padding="10"
-                    StrokeShape="RoundRectangle 14">
-
+                <Border BackgroundColor="White" StrokeThickness="0" Padding="10">
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Tapped="EventsClicked"/>
                     </Border.GestureRecognizers>
-
                     <VerticalStackLayout Spacing="8">
-
-                        <Image
-                            Source="events.jpg"
-                            HeightRequest="160"
-                            Aspect="AspectFill"/>
-
-                        <Label
-                            Text="🎤 همایش‌ها و رویدادها"
-                            FontSize="19"
-                            FontAttributes="Bold"
-                            TextColor="#171717"/>
-
-                        <Label
-                            Text="دورهمی‌ها و برنامه‌های ویژه"
-                            FontSize="13"
-                            TextColor="#666666"/>
+                        <Image Source="events.jpg" HeightRequest="160" Aspect="AspectFill"/>
+                        <Label Text="🎤 همایش‌ها و رویدادها" FontSize="19" FontAttributes="Bold" TextColor="#171717"/>
+                        <Label Text="دورهمی‌ها و برنامه‌های ویژه" FontSize="13" TextColor="#666666"/>
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- فروشگاه -->
-                <Border
-                    BackgroundColor="White"
-                    StrokeThickness="0"
-                    Padding="10"
-                    StrokeShape="RoundRectangle 14">
-
+                <Border BackgroundColor="White" StrokeThickness="0" Padding="10">
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ShopClicked"/>
                     </Border.GestureRecognizers>
-
                     <VerticalStackLayout Spacing="8">
-
-                        <Image
-                            Source="shop.jpg"
-                            HeightRequest="160"
-                            Aspect="AspectFill"/>
-
-                        <Label
-                            Text="🛍 فروشگاه"
-                            FontSize="19"
-                            FontAttributes="Bold"
-                            TextColor="#171717"/>
-
-                        <Label
-                            Text="خرید محصولات همکفیه"
-                            FontSize="13"
-                            TextColor="#666666"/>
+                        <Image Source="shop.jpg" HeightRequest="160" Aspect="AspectFill"/>
+                        <Label Text="🛍 فروشگاه" FontSize="19" FontAttributes="Bold" TextColor="#171717"/>
+                        <Label Text="خرید محصولات همکفیه" FontSize="13" TextColor="#666666"/>
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- متن پایانی -->
                 <Label
                     Text="همکفیه؛ تجربه‌ای متفاوت از سرگرمی"
                     FontSize="14"
@@ -235,103 +128,42 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- نوار پایین برنامه -->
         <Grid
             Grid.Row="1"
             BackgroundColor="White"
             Padding="5,8"
             ColumnDefinitions="*,*,*,*">
 
-            <!-- خانه -->
-            <VerticalStackLayout
-                Grid.Column="0"
-                Spacing="3"
-                HorizontalOptions="Center">
-
+            <VerticalStackLayout Grid.Column="0" Spacing="3" HorizontalOptions="Center">
                 <VerticalStackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="HomeClicked"/>
                 </VerticalStackLayout.GestureRecognizers>
-
-                <Label
-                    Text="⌂"
-                    FontSize="23"
-                    TextColor="#D20F1D"
-                    HorizontalOptions="Center"/>
-
-                <Label
-                    Text="خانه"
-                    FontSize="12"
-                    TextColor="#D20F1D"
-                    HorizontalOptions="Center"/>
+                <Label Text="⌂" FontSize="23" TextColor="#D20F1D" HorizontalOptions="Center"/>
+                <Label Text="خانه" FontSize="12" TextColor="#D20F1D" HorizontalOptions="Center"/>
             </VerticalStackLayout>
 
-            <!-- جستجو -->
-            <VerticalStackLayout
-                Grid.Column="1"
-                Spacing="3"
-                HorizontalOptions="Center">
-
+            <VerticalStackLayout Grid.Column="1" Spacing="3" HorizontalOptions="Center">
                 <VerticalStackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="SearchTabClicked"/>
                 </VerticalStackLayout.GestureRecognizers>
-
-                <Label
-                    Text="⌕"
-                    FontSize="23"
-                    TextColor="#555555"
-                    HorizontalOptions="Center"/>
-
-                <Label
-                    Text="جستجو"
-                    FontSize="12"
-                    TextColor="#555555"
-                    HorizontalOptions="Center"/>
+                <Label Text="⌕" FontSize="23" TextColor="#555555" HorizontalOptions="Center"/>
+                <Label Text="جستجو" FontSize="12" TextColor="#555555" HorizontalOptions="Center"/>
             </VerticalStackLayout>
 
-            <!-- بلیت‌های من -->
-            <VerticalStackLayout
-                Grid.Column="2"
-                Spacing="3"
-                HorizontalOptions="Center">
-
+            <VerticalStackLayout Grid.Column="2" Spacing="3" HorizontalOptions="Center">
                 <VerticalStackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TicketsClicked"/>
                 </VerticalStackLayout.GestureRecognizers>
-
-                <Label
-                    Text="▣"
-                    FontSize="23"
-                    TextColor="#555555"
-                    HorizontalOptions="Center"/>
-
-                <Label
-                    Text="بلیت‌های من"
-                    FontSize="12"
-                    TextColor="#555555"
-                    HorizontalOptions="Center"/>
+                <Label Text="▣" FontSize="23" TextColor="#555555" HorizontalOptions="Center"/>
+                <Label Text="بلیت‌های من" FontSize="12" TextColor="#555555" HorizontalOptions="Center"/>
             </VerticalStackLayout>
 
-            <!-- حساب من -->
-            <VerticalStackLayout
-                Grid.Column="3"
-                Spacing="3"
-                HorizontalOptions="Center">
-
+            <VerticalStackLayout Grid.Column="3" Spacing="3" HorizontalOptions="Center">
                 <VerticalStackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="AccountClicked"/>
                 </VerticalStackLayout.GestureRecognizers>
-
-                <Label
-                    Text="●"
-                    FontSize="23"
-                    TextColor="#555555"
-                    HorizontalOptions="Center"/>
-
-                <Label
-                    Text="حساب من"
-                    FontSize="12"
-                    TextColor="#555555"
-                    HorizontalOptions="Center"/>
+                <Label Text="●" FontSize="23" TextColor="#555555" HorizontalOptions="Center"/>
+                <Label Text="حساب من" FontSize="12" TextColor="#555555" HorizontalOptions="Center"/>
             </VerticalStackLayout>
 
         </Grid>
