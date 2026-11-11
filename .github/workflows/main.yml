@@ -33,10 +33,13 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v4
 
+      - name: Install Android Build Tools
+        run: |
+          sdkmanager "build-tools;35.0.0" "platform-tools"
+
       - name: Configure Android-only project
         run: |
           sed -i 's#<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>#<TargetFrameworks>net9.0-android</TargetFrameworks>#' Hamkafiyeh.csproj
-          echo "Checking project frameworks:"
           grep TargetFrameworks Hamkafiyeh.csproj
 
       - name: Install Android workload
@@ -46,7 +49,39 @@ jobs:
         run: dotnet restore Hamkafiyeh.csproj -p:TargetFrameworks=net9.0-android
 
       - name: Build Android APK
-        run: dotnet publish Hamkafiyeh.csproj -f net9.0-android -c Release -p:TargetFrameworks=net9.0-android -p:AndroidPackageFormats=apk --no-restore -o ./artifacts
+        run: |
+          dotnet publish Hamkafiyeh.csproj \
+            -f net9.0-android \
+            -c Release \
+            -p:TargetFrameworks=net9.0-android \
+            -p:AndroidPackageFormats=apk \
+            --no-restore \
+            -o ./artifacts
+
+      - name: Verify APK files
+        continue-on-error: true
+        run: |
+          echo "APK FILES:"
+          ls -lh artifacts/*.apk
+
+          BUILD_TOOLS="$ANDROID_HOME/build-tools/35.0.0"
+
+          for apk in artifacts/*.apk; do
+            echo "================================"
+            echo "Checking: $apk"
+
+            echo "1. ZIP integrity:"
+            unzip -t "$apk"
+
+            echo "2. APK signature:"
+            "$BUILD_TOOLS/apksigner" verify --verbose --print-certs "$apk" || true
+
+            echo "3. APK alignment:"
+            "$BUILD_TOOLS/zipalign" -c -v 4 "$apk" || true
+
+            echo "4. Package information:"
+            "$BUILD_TOOLS/aapt" dump badging "$apk" | head -n 8 || true
+          done
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
