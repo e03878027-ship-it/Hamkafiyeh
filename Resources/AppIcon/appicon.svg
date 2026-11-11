@@ -1,62 +1,11 @@
-
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg"
-     width="512" height="512" viewBox="0 0 512 512">
-
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
   <rect width="512" height="512" rx="90" fill="#171010"/>
-
-  <!-- Red theater curtains -->
-  <path d="M0 0 H170 L135 110 L165 210 L120 320 L145 512 H0 Z"
-        fill="#D20F1D"/>
-  <path d="M512 0 H342 L377 110 L347 210 L392 320 L367 512 H512 Z"
-        fill="#D20F1D"/>
-
-  <path d="M0 0 Q100 65 170 0 L145 95 Q80 65 0 115 Z"
-        fill="#F02B36"/>
-  <path d="M512 0 Q412 65 342 0 L367 95 Q432 65 512 115 Z"
-        fill="#F02B36"/>
-
-  <!-- Stage light -->
-  <path d="M190 20 L256 160 L322 20 Z"
-        fill="#D9A64A" opacity="0.16"/>
-
-  <!-- Comedy mask -->
-  <path d="M105 150 Q175 105 245 150 L230 280
-           Q175 330 120 280 Z"
-        fill="#F5E9D5"/>
-  <path d="M135 200 Q155 180 175 200
-           M190 200 Q210 180 225 200"
-        fill="none" stroke="#171010"
-        stroke-width="13" stroke-linecap="round"/>
-  <path d="M135 240 Q180 295 220 240"
-        fill="none" stroke="#171010"
-        stroke-width="13" stroke-linecap="round"/>
-
-  <!-- Tragedy mask -->
-  <path d="M267 150 Q337 105 407 150 L392 280
-           Q337 330 282 280 Z"
-        fill="#333333" stroke="#BFA477" stroke-width="5"/>
-  <path d="M292 200 Q312 180 332 200
-           M347 200 Q367 180 382 200"
-        fill="none" stroke="#FFFFFF"
-        stroke-width="13" stroke-linecap="round"/>
-  <path d="M292 265 Q337 220 382 265"
-        fill="none" stroke="#FFFFFF"
-        stroke-width="13" stroke-linecap="round"/>
-
-  <!-- Red stage ribbon -->
-  <path d="M95 355 Q256 320 417 355"
-        fill="none" stroke="#D20F1D" stroke-width="13"
-        stroke-linecap="round"/>
-
-  <!-- Golden ticket -->
-  <rect x="170" y="400" width="172" height="75"
-        rx="12" fill="#D9A64A"/>
-  <rect x="185" y="412" width="142" height="51"
-        rx="5" fill="none" stroke="#713D12" stroke-width="4"/>
-  <path d="M256 418 L267 437 L289 440 L273 455
-           L277 474 L256 463 L235 474 L239 455
-           L223 440 L245 437 Z"
-        fill="#713D12"/>
-
+  <path d="M0 0H160L130 512H0Z" fill="#D20F1D"/>
+  <path d="M512 0H352L382 512H512Z" fill="#D20F1D"/>
+  <path d="M120 150Q180 100 240 150L230 280Q180 330 130 280Z" fill="#F5E9D5"/>
+  <path d="M272 150Q332 100 392 150L382 280Q332 330 282 280Z" fill="#D9A64A"/>
+  <path d="M145 205H170M195 205H220M297 205H322M347 205H372" stroke="#171010" stroke-width="12" stroke-linecap="round"/>
+  <path d="M145 245Q180 285 220 245M297 245Q332 205 372 245" fill="none" stroke="#171010" stroke-width="12"/>
+  <path d="M100 365H412" stroke="#D9A64A" stroke-width="8"/>
+  <text x="256" y="430" font-size="58" font-weight="bold" text-anchor="middle" fill="#FFFFFF">همکفیه</text>
 </svg>
