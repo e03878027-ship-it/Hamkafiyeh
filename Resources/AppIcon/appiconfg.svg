@@ -3,10 +3,36 @@
      width="512"
      height="512"
      viewBox="0 0 512 512">
-  <text x="256" y="350"
-        font-size="300"
-        font-family="Arial"
+
+  <path d="M0 0H512V512H0Z" fill="#171010"/>
+
+  <path d="M0 0H160L130 512H0Z" fill="#D20F1D"/>
+  <path d="M512 0H352L382 512H512Z" fill="#D20F1D"/>
+
+  <path d="M120 150Q180 100 240 150L230 280Q180 330 130 280Z"
+        fill="#F5E9D5"/>
+
+  <path d="M272 150Q332 100 392 150L382 280Q332 330 282 280Z"
+        fill="#D9A64A"/>
+
+  <path d="M145 205H170M195 205H220M297 205H322M347 205H372"
+        stroke="#171010"
+        stroke-width="12"
+        stroke-linecap="round"/>
+
+  <path d="M145 245Q180 285 220 245M297 245Q332 205 372 245"
+        fill="none"
+        stroke="#171010"
+        stroke-width="12"/>
+
+  <path d="M100 365H412"
+        stroke="#D9A64A"
+        stroke-width="8"/>
+
+  <text x="256" y="430"
+        font-size="58"
         font-weight="bold"
         text-anchor="middle"
-        fill="#FFFFFF">H</text>
+        fill="#FFFFFF">همکفیه</text>
+
 </svg>
