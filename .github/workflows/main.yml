@@ -1,0 +1,41 @@
+
+name: Build Hamkafiyeh Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download project
+        uses: actions/checkout@v4
+
+      - name: Install Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install MAUI Android
+        run: dotnet workload install maui-android
+
+      - name: Build APK
+        run: dotnet publish Hamkafiyeh.csproj -f net9.0-android -c Release -p:AndroidPackageFormats=apk -o ./artifacts
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Hamkafiyeh-APK
+          path: artifacts/*.apk
