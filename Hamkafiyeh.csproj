@@ -15,7 +15,7 @@
     <ApplicationTitle>همکفیه</ApplicationTitle>
     <ApplicationId>com.companyname.hamkafiyeh</ApplicationId>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-    <ApplicationVersion>2</ApplicationVersion>
+    <ApplicationVersion>3</ApplicationVersion>
 
     <WindowsPackageType>None</WindowsPackageType>
 
@@ -27,11 +27,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#D20F1D" />
-    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#D20F1D" BaseSize="128,128" />
+    <MauiIcon Include="Resources\AppIcon\appicon.svg"
+              ForegroundFile="Resources\AppIcon\appiconfg.svg"
+              Color="#171010" />
+
+    <MauiSplashScreen Include="Resources\Splash\splash.svg"
+                      Color="#D20F1D"
+                      BaseSize="128,128" />
+
     <MauiImage Include="Resources\Images\*" />
     <MauiFont Include="Resources\Fonts\*" />
-    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+    <MauiAsset Include="Resources\Raw\**"
+               LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
   <ItemGroup>
