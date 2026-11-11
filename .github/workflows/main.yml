@@ -26,7 +26,7 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Setup Android SDK
-        uses: uses: android-actions/setup-android@v4
+        uses: android-actions/setup-android@v3
       - name: Install MAUI Android
         run: dotnet workload install maui-android
 
