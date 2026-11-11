@@ -34,10 +34,9 @@ jobs:
         uses: android-actions/setup-android@v4
 
       - name: Install Android Build Tools
-        run: |
-          sdkmanager "build-tools;35.0.0" "platform-tools"
+        run: sdkmanager "build-tools;35.0.0" "platform-tools"
 
-      - name: Configure Android-only project
+      - name: Configure Android project
         run: |
           sed -i 's#<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>#<TargetFrameworks>net9.0-android</TargetFrameworks>#' Hamkafiyeh.csproj
           grep TargetFrameworks Hamkafiyeh.csproj
@@ -59,28 +58,34 @@ jobs:
             -o ./artifacts
 
       - name: Verify APK files
-        continue-on-error: true
         run: |
-          echo "APK FILES:"
-          ls -lh artifacts/*.apk
-
+          set +e
           BUILD_TOOLS="$ANDROID_HOME/build-tools/35.0.0"
 
           for apk in artifacts/*.apk; do
-            echo "================================"
-            echo "Checking: $apk"
+            echo ""
+            echo "======================================"
+            echo "APK: $apk"
+            echo "======================================"
 
-            echo "1. ZIP integrity:"
+            echo "RESULT 1 - ZIP INTEGRITY"
             unzip -t "$apk"
+            echo "ZIP_EXIT_CODE=$?"
 
-            echo "2. APK signature:"
-            "$BUILD_TOOLS/apksigner" verify --verbose --print-certs "$apk" || true
+            echo ""
+            echo "RESULT 2 - APK SIGNATURE"
+            "$BUILD_TOOLS/apksigner" verify --verbose --print-certs "$apk"
+            echo "SIGNATURE_EXIT_CODE=$?"
 
-            echo "3. APK alignment:"
-            "$BUILD_TOOLS/zipalign" -c -v 4 "$apk" || true
+            echo ""
+            echo "RESULT 3 - APK ALIGNMENT"
+            "$BUILD_TOOLS/zipalign" -c -v 4 "$apk"
+            echo "ALIGNMENT_EXIT_CODE=$?"
 
-            echo "4. Package information:"
-            "$BUILD_TOOLS/aapt" dump badging "$apk" | head -n 8 || true
+            echo ""
+            echo "RESULT 4 - PACKAGE INFORMATION"
+            "$BUILD_TOOLS/aapt" dump badging "$apk" | head -n 10
+            echo "======================================"
           done
 
       - name: Upload APK
