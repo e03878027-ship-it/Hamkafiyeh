@@ -4,35 +4,32 @@
      height="512"
      viewBox="0 0 512 512">
 
-  <path d="M0 0H512V512H0Z" fill="#171010"/>
-
-  <path d="M0 0H160L130 512H0Z" fill="#D20F1D"/>
-  <path d="M512 0H352L382 512H512Z" fill="#D20F1D"/>
-
-  <path d="M120 150Q180 100 240 150L230 280Q180 330 130 280Z"
+  <path d="M90 155 Q165 85 245 145 L235 290 Q165 345 105 280Z"
         fill="#F5E9D5"/>
 
-  <path d="M272 150Q332 100 392 150L382 280Q332 330 282 280Z"
+  <path d="M267 145 Q347 85 422 155 L407 280 Q347 345 277 290Z"
         fill="#D9A64A"/>
 
-  <path d="M145 205H170M195 205H220M297 205H322M347 205H372"
+  <path d="M125 205 H165 M185 205 H220"
         stroke="#171010"
-        stroke-width="12"
+        stroke-width="15"
         stroke-linecap="round"/>
 
-  <path d="M145 245Q180 285 220 245M297 245Q332 205 372 245"
-        fill="none"
+  <path d="M292 205 H327 M347 205 H382"
         stroke="#171010"
-        stroke-width="12"/>
+        stroke-width="15"
+        stroke-linecap="round"/>
 
-  <path d="M100 365H412"
-        stroke="#D9A64A"
-        stroke-width="8"/>
+  <path d="M125 245 Q175 305 225 245"
+        fill="none"
+        stroke="#D20F1D"
+        stroke-width="15"
+        stroke-linecap="round"/>
 
-  <text x="256" y="430"
-        font-size="58"
-        font-weight="bold"
-        text-anchor="middle"
-        fill="#FFFFFF">همکفیه</text>
+  <path d="M292 245 Q342 185 382 245"
+        fill="none"
+        stroke="#D20F1D"
+        stroke-width="15"
+        stroke-linecap="round"/>
 
 </svg>
