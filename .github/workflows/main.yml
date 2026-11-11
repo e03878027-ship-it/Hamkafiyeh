@@ -8,6 +8,9 @@ on:
       - main
       - master
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,13 +19,13 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v4
 
-      - name: Setup Java
+      - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Setup .NET
+      - name: Setup .NET 9
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.0.x'
@@ -30,14 +33,24 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v4
 
-      - name: Install MAUI Android
+      - name: Configure Android-only project
+        run: |
+          sed -i 's#<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>#<TargetFrameworks>net9.0-android</TargetFrameworks>#' Hamkafiyeh.csproj
+          echo "Checking project frameworks:"
+          grep TargetFrameworks Hamkafiyeh.csproj
+
+      - name: Install Android workload
         run: dotnet workload install maui-android
 
-      - name: Build APK
-        run: dotnet publish Hamkafiyeh.csproj -f net9.0-android -c Release -p:AndroidPackageFormats=apk -o ./artifacts
+      - name: Restore project
+        run: dotnet restore Hamkafiyeh.csproj -p:TargetFrameworks=net9.0-android
+
+      - name: Build Android APK
+        run: dotnet publish Hamkafiyeh.csproj -f net9.0-android -c Release -p:TargetFrameworks=net9.0-android -p:AndroidPackageFormats=apk --no-restore -o ./artifacts
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Hamkafiyeh-APK
           path: artifacts/*.apk
+          if-no-files-found: error
